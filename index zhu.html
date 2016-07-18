@@ -1,0 +1,203 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<style type="text/css">
+* { padding: 0; margin: 0; }
+#linkme{
+	position: absolute;
+	width: 100%;
+	height:50%;
+	top: 50%;
+	background-color: transparent;
+}
+body{
+	overflow-y: auto;
+}
+#pushr { 
+	width: auto; height:1700px; background:url(h2.jpg) no-repeat;
+	-webkit-background-size: 100%;
+	background-size: 100%; 
+	position: relative; 
+	margin: 0 auto;
+	 }
+
+
+
+#date { 
+	width: 624px;
+	height: 200px;
+	position: absolute; 
+	top: 40%;
+	left: 25%;
+	color: #ff; 
+	font-size: 3rem; font-family: arial; font-weight: bold; 	
+		}
+#date p {
+	margin-left: 30px;
+	float: left;
+	height: 80px;
+	vertical-align :middle;
+	line-height: 80px;
+	background-color:rgba(255,255,255,255); 
+	display: inline-block;
+	margin-top: 20px;
+	width: 60px;
+	text-align: center; 
+}
+#day { right: 340px;margin-right: -20px; }
+#hour { right: 236px; margin-right: -20px;}
+#min { right: 102px; margin-right: -20px;}
+#fdate{
+	position: absolute;
+	width: 424px;
+	height: 200px;
+	top: 42%;
+	left: 30%;
+	color: yellow;
+	font-size: 2rem;
+}
+#fdate span{ position: absolute; top: 50%; }
+#fday { right: 340px; }
+#fhour { right: 194px; }
+#fmin { right: 15px; }
+
+#fday{
+	position: absolute;
+	top: 60%;
+	left: 7%;
+}
+
+h1 { position: absolute; bottom: 0; right: 0; }
+h1 a { position: absolute; right: 40px; bottom: 30px; width: 292px; height: 72px; }
+
+</style>
+</head>
+<script type="text/javascript">
+window.onload=function ()
+{
+	var oInputYear=2016;
+	var oInputMonth=08;
+	var oInputDay=15;
+	
+	var oBtn=document.getElementById('go');
+	var oBtn2=document.getElementById('go2');
+	
+	
+	var timer=null;
+	function fn ()
+	{
+		timer=setInterval(updateTime, 1000);
+		updateTime();
+	};
+	fn();
+	
+	function fillZero(num, digit)
+	{
+		var str=''+num;
+		
+		while(str.length<digit)
+		{
+			str='0'+str;
+		}
+		
+		return str;
+	}
+	
+	function updateTime()
+	{
+		var oDateEnd=new Date();
+		var oDateNow=new Date();
+		
+		var iRemain=0;
+		
+		var iDay=0;
+		var iHour=0;
+		var iMin=0;
+		var iSec=0;
+		
+		oDateEnd.setFullYear(parseInt(oInputYear));
+		oDateEnd.setMonth(parseInt(oInputMonth)-1);
+		oDateEnd.setDate(parseInt(oInputDay));
+		oDateEnd.setHours(0);
+		oDateEnd.setMinutes(0);
+		oDateEnd.setSeconds(0);
+		
+		iRemain=(oDateEnd.getTime()-oDateNow.getTime())/1000;
+		
+		if(iRemain<=0)
+		{
+			clearInterval(timer);
+			iRemain=0;
+		}
+		
+		iDay=parseInt(iRemain/86400);
+		iRemain%=86400;
+		
+		iHour=parseInt(iRemain/3600);
+		iRemain%=3600;
+		
+		iMin=parseInt(iRemain/60);
+		iRemain%=60;
+		
+		iSec=iRemain;
+		if (iDay<10) {
+			document.getElementById('day').innerHTML=0;
+			document.getElementById('day1').innerHTML=fillZero(iDay,1);
+		}else{
+
+			document.getElementById('day').innerHTML=fillZero(parseInt(iDay/10),1);
+			document.getElementById('day1').innerHTML=fillZero(iDay%10,1);
+		}
+		if (iHour<10) {
+			document.getElementById('hour').innerHTML=0;
+			document.getElementById('hour1').innerHTML=fillZero(iHour,1);
+		}else{
+
+			document.getElementById('hour').innerHTML=fillZero(parseInt(iHour/10),1);
+			document.getElementById('hour1').innerHTML=fillZero(iHour%10,1);
+		}
+		if (iMin<10) {
+			document.getElementById('min').innerHTML=0;
+			document.getElementById('min1').innerHTML=fillZero(iMin,1);
+		}else{
+
+			document.getElementById('min').innerHTML=fillZero(parseInt(iMin/10),1);
+			document.getElementById('min1').innerHTML=fillZero(iMin%10,1);
+			
+		}
+		// document.getElementById('sec').innerHTML=fillZero(iSec,2);
+		console.log(iDay,iHour,iMin);
+	};
+};
+</script>
+<body>
+
+<div id="pushr">
+
+	<!-- <div id="clps"></div> -->
+    <div id="date">
+        <p id="day">000</p>
+        <p id="day1">000</p>
+        <p id="hour">00</p>
+        <p id="hour1">00</p>
+        <p id="min">00</p>
+        <p id="min1">00</p>
+        <!-- <p id="sec">00</p> -->
+    </div>
+    <div id="fdate">
+    	<span id='fday'>天</span>
+    	<span id='fhour'>时</span>
+    	<span id='fmin'>分</span>
+    	<!-- <span id='fsec'>秒</span> -->
+    </div>
+
+	<div>
+    	<a id="linkme" href="https://jinshuju.net/f/bmOW2b"></a>
+	</div>
+
+    </div>
+<p></p> 
+</body>
+</html>
