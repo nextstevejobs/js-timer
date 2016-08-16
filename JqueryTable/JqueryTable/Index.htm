@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Jquery 操作 Table</title>
+    <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="Scripts/myJs.js" type="text/javascript"></script>
+    <style type="text/css">
+        table
+        {
+            border-collapse: collapse;
+            border-spacing: 0;
+            margin-right: auto;
+            margin-left: auto;
+            width: 800px;
+        }
+        th, td
+        {
+            border: 1px solid #b5d6e6;
+            font-size: 12px;
+            font-weight: normal;
+            text-align: center;
+            vertical-align: middle;
+            height: 20px;
+        }
+        th
+        {
+            background-color: Gray;
+        }        
+        
+        .hover
+        {
+            background-color: #cccc00;
+        }
+        
+        .odd
+        {
+            background-color: #bbf;
+        }
+        
+        .even
+        {
+            background-color:#ffc;
+        }
+    </style>
+</head>
+<body>
+    <table id="table1">
+        <tr>
+            <th colspan="5" style="width: 800px;">
+                鼠标移动到行变色
+            </th>
+        </tr>
+        <tr>
+            <td>
+                第一行第一列
+            </td>
+            <td>
+                第一行第二列
+            </td>
+            <td>
+                第一行第三列
+            </td>
+            <td>
+                第一行第四列
+            </td>
+            <td>
+                第一行第五列
+            </td>
+        </tr>
+        <tr>
+            <td>
+                第二行第一列
+            </td>
+            <td>
+                第二行第二列
+            </td>
+            <td>
+                第二行第三列
+            </td>
+            <td>
+                第二行第四列
+            </td>
+            <td>
+                第二行第五列
+            </td>
+        </tr>
+        <tr>
+            <td>
+                第三行第一列
+            </td>
+            <td>
+                第三行第二列
+            </td>
+            <td>
+                第三行第三列
+            </td>
+            <td>
+                第三行第四列
+            </td>
+            <td>
+                第三行第五列
+            </td>
+        </tr>
+        <tr>
+            <td>
+                第四行第一列
+            </td>
+            <td>
+                第四行第二列
+            </td>
+            <td>
+                第四行第三列
+            </td>
+            <td>
+                第四行第四列
+            </td>
+            <td>
+                第四行第五列
+            </td>
+        </tr>
+    </table>
+    <br />
+    <table id="table2">
+        <tr>
+            <th colspan="5" style="width: 800px;">
+                表格奇偶行变色
+            </th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>
+                    第一行第一列
+                </td>
+                <td>
+                    第一行第二列
+                </td>
+                <td>
+                    第一行第三列
+                </td>
+                <td>
+                    第一行第四列
+                </td>
+                <td>
+                    第一行第五列
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    第二行第一列
+                </td>
+                <td>
+                    第二行第二列
+                </td>
+                <td>
+                    第二行第三列
+                </td>
+                <td>
+                    第二行第四列
+                </td>
+                <td>
+                    第二行第五列
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    第三行第一列
+                </td>
+                <td>
+                    第三行第二列
+                </td>
+                <td>
+                    第三行第三列
+                </td>
+                <td>
+                    第三行第四列
+                </td>
+                <td>
+                    第三行第五列
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <table id="table3">
+        <tr>
+            <th style="width: 160px;">
+                表头一
+            </th>
+            <th style="width:160px; display;">
+                表头二
+            </th>
+            <th style="width: 160px;">
+                表头三
+            </th>
+            <th style="width: 160px;">
+                表头四
+            </th>
+            <th style="width: 160px;">
+                表头五
+            </th>
+        </tr>
+            <tr>
+                <td>
+                    第一行第一列
+                </td>
+                <td>
+                    第一行第二列
+                </td>
+                <td>
+                    第一行第三列
+                </td>
+                <td>
+                    第一行第四列
+                </td>
+                <td>
+                    第一行第五列
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    第二行第一列
+                </td>
+                <td >
+                    第二行第二列
+                </td>
+                <td>
+                    第二行第三列
+                </td>
+                <td>
+                    第二行第四列
+                </td>
+                <td>
+                    第二行第五列</td>
+            </tr>
+            <tr>
+                <td>
+                    第三行第一列
+                </td>
+                <td>
+                    第三行第二列
+                </td>
+                <td>
+                    第三行第三列
+                </td>
+                <td>
+                    第三行第四列
+                </td>
+                <td>
+                    第三行第五列
+                </td>
+            </tr>
+    </table>
+
+    <table id="tctrl">
+        <tr>
+            <th colspan="5" style="width: 800px;">
+                对上面表格进行控制操作
+            </th>
+        </tr>
+        <tr>
+            <td style="width: 160px">
+                <input id="btn1" type="button" value="删除第二行" />
+            </td>
+            <td style="width: 160px">
+                <input id="btn2" type="button" value="删除第二列" />
+            </td>
+            <td style="width: 160px">
+                <input id="btn3" type="button" value="删除第二行外的所有行" /></td>
+            <td style="width: 160px">
+                <input id="btn4" type="button" value="删除第二列外的所有列" /></td>
+            <td style="width: 160px">
+                <input id="btn5" type="button" value="隐藏第二行" /></td>
+        </tr>        
+        <tr>
+            <td style="width: 160px">
+                <input id="btn6" type="button" value="隐藏第二列" /></td>
+            <td style="width: 160px">
+                <input id="btn7" type="button" value="插入行最后" /></td>
+            <td style="width: 160px">
+                <input id="btn8" type="button" value="在第二行后插入行" /></td>
+            <td style="width: 160px">
+                <input id="btn9" type="button" value="获取2*3单元格值" /></td>
+            <td style="width: 160px">
+                <input id="btn10" type="button" value="获取第二列所有值" /></td>
+        </tr>        
+        <tr>
+            <td style="width: 160px">
+                <input id="btn11" type="button" value="获取第二行所有值" /></td>
+            <td style="width: 160px">
+                <input id="btn12" type="button" value="横向合并单元格" /></td>
+            <td style="width: 160px">
+                <input id="btn13" type="button" value="横向拆分单元格" /></td>
+            <td style="width: 160px">
+                <input id="btn14" type="button" value="纵向合并单元格" /></td>
+            <td style="width: 160px">
+                <input id="btn15" type="button" value="纵向拆分单元格" /></td>
+        </tr> 
+    </table>
+    <br />
+    <table id="table4">
+        <tr>
+            <th style="width: 160px;">
+                表头一<input id="colCkb1" type="checkbox" />
+            </th>
+            <th style="width:160px; display;">
+                表头二<input id="colckb2" type="checkbox" />
+            </th>
+            <th style="width: 160px;">
+                表头三<input id="colckb3" type="checkbox" />
+            </th>
+            <th style="width: 160px;">
+                表头四<input id="colCkb4" type="checkbox" />
+            </th>
+            <th style="width: 160px;">
+                <input id="ckbAll"  type="checkbox" />全选
+            </th>
+        </tr>
+            <tr>
+                <td>
+                    第一行第一列
+                </td>
+                <td>
+                    第一行第二列
+                </td>
+                <td>
+                    第一行第三列
+                </td>
+                <td>
+                    第一行第四列
+                </td>
+                <td>
+                    <input id="ckb1" type="checkbox" /></td>
+            </tr>
+            <tr>
+                <td>
+                    第二行第一列
+                </td>
+                <td >
+                    第二行第二列
+                </td>
+                <td>
+                    第二行第三列
+                </td>
+                <td>
+                    第二行第四列
+                </td>
+                <td>
+                   <input id="ckb2" type="checkbox" /></td>
+            </tr>
+            <tr>
+                <td>
+                    第三行第一列
+                </td>
+                <td>
+                    第三行第二列
+                </td>
+                <td>
+                    第三行第三列
+                </td>
+                <td>
+                    第三行第四列
+                </td>
+                <td>
+                   <input id="ckb3" type="checkbox" /></td>
+            </tr>
+            <tr>
+                <td>
+                    第四行第一列
+                </td>
+                <td>
+                    第四行第二列
+                </td>
+                <td>
+                    第四行第三列
+                </td>
+                <td>
+                    第四行第四列
+                </td>
+                <td>
+                   <input id="ckb4" type="checkbox" /></td>
+            </tr>
+    </table>
+</body>
+</html>

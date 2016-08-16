@@ -1,0 +1,5 @@
+C:\Users\liuxu\Desktop\JqueryTable\JqueryTable\bin\JqueryTable.dll
+C:\Users\liuxu\Desktop\JqueryTable\JqueryTable\bin\JqueryTable.pdb
+C:\Users\liuxu\Desktop\JqueryTable\JqueryTable\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\liuxu\Desktop\JqueryTable\JqueryTable\obj\Debug\JqueryTable.dll
+C:\Users\liuxu\Desktop\JqueryTable\JqueryTable\obj\Debug\JqueryTable.pdb
